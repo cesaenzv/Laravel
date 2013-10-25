@@ -1,5 +1,4 @@
 <?php
-
 class UserController extends BaseController{
 
 	public function index(){
@@ -7,6 +6,18 @@ class UserController extends BaseController{
 	}
 
 	public function CreateNew(){
-		return View::make('user.register');		
+		if(count(Input::all())<=1)
+			return View::make('user.register');
+
+		$input = $this->validateToken(Input::all());		
+		var_dump($input);		
+	}
+
+	private function validateToken($input){
+		if (Session::token() != $input['_token'])
+			throw new  Illuminate\Session\TokenMismatchException;
+		unset($input['/'.Request::path()]);
+		unset($input['_token']);
+		return $input;
 	}
 }

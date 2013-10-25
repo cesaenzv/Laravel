@@ -11,7 +11,7 @@
 |
 */
 
-Route::any('usuario/nuevo','UserController@CreateNew');
+Route::any('usuario/nuevo',array('as' => 'ususario.nuevo', 'uses'=>'UserController@CreateNew'));
 Route::group(array('before'=>'auth'),function(){
 	Route::resource('usuario','UserController',
 			array('except' => array('CreateNew')));	

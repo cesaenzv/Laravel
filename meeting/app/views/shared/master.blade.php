@@ -6,6 +6,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <!-- Bootstrap -->
 	    {{ HTML::style('libs/bootstrap/css/bootstrap.min.css')}}		
+	    {{ HTML::style('libs/jquery/jquery-ui-1.10.3/css/redmond/jquery-ui-1.10.3.custom.css')}}		
+
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -31,6 +33,7 @@
 			</div>
 		</footer>
 		{{HTML::script('libs/jquery/jquery-2.0.3.js')}}		
+		{{HTML::script('libs/jquery/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js')}}				
 		{{HTML::script('libs/bootstrap/js/bootstrap.min.js')}}
 		@yield('Scripts_Tags')					
 	</body>
