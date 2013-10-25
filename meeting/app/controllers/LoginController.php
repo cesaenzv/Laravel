@@ -4,16 +4,12 @@ use App\DbRepositorys;
 
 class LoginController extends BaseController {
 
-	public function _construct (UserRepositoryInterface $users){
+	/*public function _construct (UserRepositoryInterface $users){
 		$this->users = $users;
-	}
+	}*/
 
-	public function getIndex(){		
+	public function anyIndex(){
 		return View::make('home');
 	}
 
-	public function getIndex2(){		
-		echo "prueba";
-	}
-	
 }

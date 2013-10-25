@@ -12,7 +12,7 @@
 	      <script src="../../assets/js/html5shiv.js"></script>
 	      <script src="../../assets/js/respond.min.js"></script>
 	    <![endif]-->
-	    @yield('Styles_Tags')	    
+	    @yield('Styles_Tags')
 	</head>
 	<body>
 		<header class="row">

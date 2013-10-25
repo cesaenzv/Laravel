@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -12,8 +13,8 @@
 */
 
 App::before(function($request)
-{
-	//
+{	
+	//if (Auth::guest() && Request::path() != ('acceso')) return Redirect::to('acceso');	
 });
 
 
@@ -34,9 +35,7 @@ App::after(function($request, $response)
 */
 
 Route::filter('auth', function(){
-	if (!Auth::guest()){ 
-		return Redirect::to('/usuario');
-	}
+	if (Auth::guest() && Request::path() != ('acceso')) return Redirect::to('/');		
 });
 
 

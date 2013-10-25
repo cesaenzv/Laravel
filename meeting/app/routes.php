@@ -11,12 +11,11 @@
 |
 */
 
-Route::any('/*', array('before' => 'auth', 'uses' => 'LoginController@index'));
-
-
-
-/*Restful controllers*/
+Route::any('usuario/nuevo','UserController@CreateNew');
+Route::group(array('before'=>'auth'),function(){
+	Route::resource('usuario','UserController',
+			array('except' => array('CreateNew')));	
+});
 
 Route::controller('acceso','LoginController');
-Route::controller('usuario','UserController');
-
+Route::any('/','HomeController@showHome');
