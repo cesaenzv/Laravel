@@ -20,8 +20,8 @@
 				{{Form::password('password', array('class'=>'form-control'))}}
 			</div>
 			<div class="form-goup">
-				{{Form::label('password_verify', 'Ingrese nuevamente la contraseña:')}}
-				{{Form::password('password_verify', array('class'=>'form-control'))}}
+				{{Form::label('password_confirmation', 'Ingrese nuevamente la contraseña:')}}
+				{{Form::password('password_confirmation', array('class'=>'form-control'))}}
 			</div>
 			<div class="form-goup">
 				{{Form::label('email', 'Correo de contacto:')}}
