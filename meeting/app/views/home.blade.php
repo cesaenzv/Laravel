@@ -7,19 +7,18 @@
 		<section class="msg-server">
 			@if($errors->any())
 			  <ul>
-			  	{{echo '<li>'}}
+			  	{{'<li>'}}
 			    {{implode('</li><li>', $errors->all())}}
-			  	{{echo '</li>'}}
+			  	{{'</li>'}}
 			  </ul>			
 			@endif
 			@if($errors->any())
 			  <ul>
-			    {{echo '<li>'}}
+			    {{'<li>'}}
 			    {{implode('</li><li>', $msg)}}
-			  	{{echo '</li>'}}
+			  	{{'</li>'}}
 			  </ul>			
 			@endif
-
 		</section>
 	</div>
 @stop

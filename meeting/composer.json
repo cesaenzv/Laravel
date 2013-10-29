@@ -9,7 +9,8 @@
 	"autoload": {
 		"classmap": [
 			"app/utilities",
-			"app/repositorys",	
+			"app/repositorys/modelobserver",	
+			"app/repositorys/modelrepository",	
 			"app/interfaces",
 			"app/commands",
 			"app/controllers",

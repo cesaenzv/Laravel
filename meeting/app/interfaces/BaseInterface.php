@@ -1,5 +1,5 @@
 <?php 
-//namespace App\InterfaceRepositorys;
+//namespace Meeting\InterfaceRepositorys;
 
 interface BaseInterface{
 	public function all();
@@ -9,5 +9,5 @@ interface BaseInterface{
 }
 
 interface UserRepositoryInterface extends BaseInterface{	
-
+	
 }
