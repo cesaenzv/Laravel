@@ -1,9 +1,5 @@
 <?php 
 
-//namespace Meeting\DbRepositorys;
-
-//use Meeting\InterfaceRepositorys;
-
 class UserRepository implements UserRepositoryInterface{
 
 	public function __construct(){
@@ -15,7 +11,6 @@ class UserRepository implements UserRepositoryInterface{
 	}
 
 	public function create($elem){
-		//var_dump($elem);
 		$currentDate = date('Y-m-d H:i:s');
 		$elem['created_at'] = $currentDate;
 		$elem['last_login'] = $currentDate;

@@ -15,4 +15,13 @@ class BaseController extends Controller {
 		}
 	}
 
+	protected function validateToken($input = array(), $requestPath = ""){
+
+		if (Session::token() != $input['_token'] )
+			throw new  Illuminate\Session\TokenMismatchException;
+		unset($input['/'.$requestPath]);
+		unset($input['_token']);
+		return $input;
+		
+	}
 }
