@@ -1,12 +1,12 @@
 <?php
 
-interface Observer {
+abstract class BaseObserver {
 
-	public function saved($model);
+	abstract function saved($model);	
 }
 
 
-class BaseObserver implements Observer {
+class UserObserver extends BaseObserver {
 
 	public function saved($model){
 		if($model)
@@ -14,14 +14,5 @@ class BaseObserver implements Observer {
 		else
 			return false;
 	}
-}
-
-
-class UserObserver extends BaseObserver {
-	public function saved($model){
-		if($model)
-			return true;
-		else
-			return false;
-	}	
+	
 }

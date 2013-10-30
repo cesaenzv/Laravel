@@ -16,11 +16,9 @@ class UserController extends BaseController{
 	}
 
 	public function store(){
-		//$input = InputHandler::validateToken(Input::all(), Request::path());		
-		//var_dump(new InputHandler);
 		if(count(Input::all())>1){
-			$newUser =  $this->user->create($this->validateToken(Input::all(), Request::path()));
-			if($newUser::saved())
+			$created =  $this->user->create($this->validateToken(Input::all(), Request::path()));
+			if($created->saved())
 				return Redirect::route('home')->with('msg','Usuario creado satisfactoriamente.');
 			else
 				return Redirect::route('home')->withInput()->withErrors($newUser->errors());
@@ -28,11 +26,5 @@ class UserController extends BaseController{
 		return View::make('user.register');
 	}
 
-	private function validateToken($input = array(), $requestPath = ""){
-		if (Session::token() != $input['_token'] )
-			throw new  Illuminate\Session\TokenMismatchException;
-		unset($input['/'.$requestPath]);
-		unset($input['_token']);
-		return $input;
-	}
+	
 }
