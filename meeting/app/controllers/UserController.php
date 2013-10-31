@@ -1,6 +1,4 @@
 <?php
-//use App\DbRepositorys;
-
 
 class UserController extends BaseController{
 
@@ -18,7 +16,7 @@ class UserController extends BaseController{
 	public function store(){
 		if(count(Input::all())>1){
 			$created =  $this->user->create($this->validateToken(Input::all(), Request::path()));
-			if($created->saved())
+			if($created != null)
 				return Redirect::route('home')->with('msg','Usuario creado satisfactoriamente.');
 			else
 				return Redirect::route('home')->withInput()->withErrors($newUser->errors());

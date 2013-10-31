@@ -14,5 +14,5 @@ class UserObserver extends BaseObserver {
 		else
 			return false;
 	}
-	
+
 }

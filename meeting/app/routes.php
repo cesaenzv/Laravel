@@ -19,4 +19,4 @@ Route::group(array('before'=>'auth'),function(){
 });
 
 Route::controller('acceso','LoginController');
-Route::any('/','HomeController@showHome');
+Route::any('/',array('as'=>'home','uses'=>'HomeController@showHome'));
