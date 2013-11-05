@@ -10,13 +10,26 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/*Ruta registro nuevo usuario*/
+Route::any(
+	'usuario/nuevo',
+	array(
+		'before'=>'register',
+		'as' => 'ususario.nuevo', 
+		'uses'=>'UserController@store'
+	)
+);
 
-Route::any('usuario/nuevo',array('as' => 'ususario.nuevo', 'uses'=>'UserController@store'));
+/*Rutas controllers o resources*/
 
 Route::group(array('before'=>'auth'),function(){
-	Route::resource('usuario','UserController',
-			array('except' => array('CreateNew')));	
+
+	Route::resource('usuario','UserController');
+
 });
 
 Route::controller('acceso','LoginController');
-Route::any('/',array('as'=>'home','uses'=>'HomeController@showHome'));
+
+
+/*Ruta home*/
+Route::any('/',array('as'=>'login','uses'=>'LoginController@anyIndex'));

@@ -11,10 +11,10 @@ class UserRepository implements UserRepositoryInterface{
 	}
 
 	public function create($elem){
-		$currentDate = date('Y-m-d H:i:s');
+		$currentDate = date('d-m-Y H:i:s');
 		$elem['created_at'] = $currentDate;
 		$elem['last_login'] = $currentDate;
-		$elem['birthday'] = date('Y-m-d', strtotime(str_replace('/', '-', $elem['birthday'])));
+		$elem['birthday'] = date('d-m-Y', strtotime($elem['birthday']));
 		$elem['password'] = Hash::make($elem['password']);
 		return User::create($elem);
 	}

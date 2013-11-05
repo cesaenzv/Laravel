@@ -15,11 +15,11 @@ class UserController extends BaseController{
 
 	public function store(){
 		if(count(Input::all())>1){
-			$created =  $this->user->create($this->validateToken(Input::all(), Request::path()));
+			$created =  $this->user->create(Input::all());
 			if($created != null)
-				return Redirect::route('home')->with('msg','Usuario creado satisfactoriamente.');
+				return Redirect::route('login')->with('msg','Usuario creado satisfactoriamente.');
 			else
-				return Redirect::route('home')->withInput()->withErrors($newUser->errors());
+				return Redirect::route('login')->withInput()->withErrors($newUser->errors());
 		}
 		return View::make('user.register');
 	}

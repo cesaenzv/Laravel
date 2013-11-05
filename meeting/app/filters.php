@@ -78,3 +78,12 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*Customs Filters*/
+
+Route::filter('register',function(){	
+	if(Input::has('password') && Input::has('password_confirmation')){
+		if(Input::get('password') !== Input::get('password_confirmation'))
+			return Redirect::to('usuario/nuevo')->withErrors(array('Las contraseñas no coinciden'));
+	}	
+});

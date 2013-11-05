@@ -1,6 +1,8 @@
 @extends('shared.master')
 
 @section('Content')
+	@include('partials.message')
+
 	<div class="col-md-6 col-md-offset-3">
 		{{Form::open(array('route'=>'ususario.nuevo','role'=>'form'))}}			
 			<div class="form-group">
