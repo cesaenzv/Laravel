@@ -32,4 +32,4 @@ Route::controller('acceso','LoginController');
 
 
 /*Ruta home*/
-Route::any('/',array('as'=>'login','uses'=>'LoginController@anyIndex'));
+Route::any('/',array('before'=>'guest','as'=>'login','uses'=>'LoginController@anyIndex'));

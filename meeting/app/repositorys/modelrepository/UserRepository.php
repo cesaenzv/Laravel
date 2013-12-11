@@ -11,10 +11,9 @@ class UserRepository implements UserRepositoryInterface{
 	}
 
 	public function create($elem){
-		$currentDate = date('d-m-Y H:i:s');
-		$elem['created_at'] = $currentDate;
-		$elem['last_login'] = $currentDate;
-		$elem['birthday'] = date('d-m-Y', strtotime($elem['birthday']));
+		$elem['created_at'] = date('d-m-y H:i:s');
+		$elem['last_login'] = date('d-m-y H:i:s');
+		$elem['birthday'] = date('d-m-y', strtotime($elem['birthday']));
 		$elem['password'] = Hash::make($elem['password']);
 		return User::create($elem);
 	}

@@ -17,30 +17,32 @@ class LoginController extends BaseController {
 	public function postLogIn(){
 		if (Input::server("REQUEST_METHOD") == "POST")
         {
-            $validator = Validator::make(Input::all(), [
-                "username" => "required",
-                "password" => "required"
-            ]);
+            $validator = Validator::make(Input::all(), array(
+                "username" => "Required",
+                "password" => "Required"
+            ));
             
             if ($validator->passes())
-            {
+            {   
                 $credentials = array(
-                	'username' =>Input::get('username'), 
+                	'username'=>Input::get('username'), 
                 	'password'=>Input::get('password')
-                	);
-                var_dump(Input::all());
-                var_dump(Auth::attempt($credentials,true));
-                die();
-                if (Auth::attempt($credentials))
+            	);
+                if (Auth::attempt($credentials,true))
                 {
-                    return Redirect::route("/usuario");
+                    return Redirect::to("/usuario");
                 }
+
             }
             return Redirect::route('login')->withErrors($validator);
 
         }
         return Redirect::route('login');
 	}
-	
+
+    public function anyLogOut(){
+        Auth::logout();
+        return Redirect::route('login');
+    }	
 
 }

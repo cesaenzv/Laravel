@@ -19,7 +19,10 @@
 	<body>
 		<header class="row">
 			<div class="col-md-12">
-				<h1>BIENVENIDO A "MEETING MANAGER"</h1>											
+				<h1>BIENVENIDO A "MEETING MANAGER"</h1>
+				@if(Auth::check())	
+					{{link_to('acceso/log-out', 'Log Out');}}								
+				@endif
 			</div>
 		</header>
 		<content class="row">

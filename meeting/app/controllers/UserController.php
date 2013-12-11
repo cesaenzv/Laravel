@@ -3,7 +3,7 @@
 class UserController extends BaseController{
 
 	/*Definicion de objetos de dominio*/
-	protected $user;
+	private $user;
 
 	public function __construct (UserRepository $userRepository){
 		$this->user = $userRepository;
@@ -17,7 +17,7 @@ class UserController extends BaseController{
 		if(count(Input::all())>1){
 			$created =  $this->user->create(Input::all());
 			if($created != null)
-				return Redirect::route('login')->with('msg','Usuario creado satisfactoriamente.');
+				return Redirect::route('login')->with('msg',array('Usuario creado satisfactoriamente.'));
 			else
 				return Redirect::route('login')->withInput()->withErrors($newUser->errors());
 		}
