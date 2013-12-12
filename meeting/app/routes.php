@@ -33,3 +33,5 @@ Route::controller('acceso','LoginController');
 
 /*Ruta home*/
 Route::any('/',array('before'=>'guest','as'=>'login','uses'=>'LoginController@anyIndex'));
+
+Route::any('/package','CalendarController@anyIndex');

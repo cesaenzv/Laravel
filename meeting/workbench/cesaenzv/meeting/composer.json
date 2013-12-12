@@ -1,0 +1,25 @@
+{
+    "name": "cesaenzv/meeting",
+    "description": "",
+    "authors": [
+        {
+            "name": "Carlos E. Sáenz Vega",
+            "email": "cesaenz91@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers",            
+            "src/views"
+        ],
+        "psr-0": {
+            "Cesaenzv\\Meeting\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
